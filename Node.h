@@ -9,7 +9,8 @@
 
 struct node
 {
-    int data;
+    int order;
+    int quan;
     struct node *nextPtr;
 };
 
@@ -17,7 +18,7 @@ typedef struct node Node;
 typedef struct node* NodePtr;
 
 
-void enqueue(NodePtr * head, NodePtr* tail, int x)
+/*void enqueue(NodePtr * head, NodePtr* tail, int x)
 {
   NodePtr new_node=(NodePtr) malloc(sizeof(Node));
 
@@ -52,5 +53,5 @@ int dequeue(NodePtr* head, NodePtr* tail)
   temp = NULL;
    return val;
 }
-
+*/
 #endif

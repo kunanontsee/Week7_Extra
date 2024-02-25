@@ -6,12 +6,13 @@ typedef struct {
 }Queue;
 
 
-void enqueue_struct(Queue* q, int x)
+void enqueue_struct(Queue* q, int o, int qu)
 {
   Node *new_node=(Node*) malloc(sizeof(Node));
   if(new_node!=NULL)
   { 
-    new_node->data = x;
+    new_node->order = o;
+    new_node->quan = qu;
     new_node->nextPtr = NULL;
     if(q->headPtr==NULL)
     {
@@ -27,19 +28,18 @@ void enqueue_struct(Queue* q, int x)
 }
 
 
-int dequeue_struct(Queue *q){
+int dequeue_struct(Queue *q, int *od, int *qu){
   NodePtr t=q->headPtr;
   if(t!=NULL)
   {
     q->headPtr = q->headPtr->nextPtr;
-    int value = t->data;
+    *od = t->order;
+    *qu = t->quan;
     free(t);
     t = NULL;
     q->size -= 1;
-    printf("dequeing %d\n",value);
-    return value;
   }
-  else if(q->size<=0) printf("Empty queue\n");
+  else if(q->size<=0) printf("the q is empty\n");
   return 0;
 }
 
