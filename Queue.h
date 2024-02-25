@@ -36,9 +36,10 @@ int dequeue_struct(Queue *q){
     free(t);
     t = NULL;
     q->size -= 1;
+    printf("dequeing %d\n",value);
     return value;
   }
-  else printf("Empty queue\n");
+  else if(q->size<=0) printf("Empty queue\n");
   return 0;
 }
 
